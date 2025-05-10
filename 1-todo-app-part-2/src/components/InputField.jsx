@@ -1,25 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-const InputField = ({setItems , items}) => {
-    let [task , setTask] = useState("");
-    let [date , setDate] = useState("");
-    const handleTask = (e) => {
-      setTask(e.target.value);
-    }
-    const handleDate = (e) => {
-      setDate(e.target.value);
-    }
-    const addItems = () => {
-      const newItem = {
-        name: task,
-        dueDate: date
-      };
+const InputField = ({ setItems, items }) => {
+  let [task, setTask] = useState("");
+  let [date, setDate] = useState("");
 
-      setItems([...items, newItem]);
+  const handleTask = (e) => {
+    setTask(e.target.value);
+  };
 
-      setTask("");
-      setDate("");
-    }
+  const handleDate = (e) => {
+    setDate(e.target.value);
+  };
+
+  const addItems = (e) => {
+    e.preventDefault(); // prevent page reload
+
+    const newItem = {
+      name: task,
+      dueDate: date
+    };
+
+    setItems([...items, newItem]);
+    setTask("");
+    setDate("");
+  };
+
   return (
     <form onSubmit={addItems} className="container text-center">
       <div className="row">
@@ -41,7 +46,7 @@ const InputField = ({setItems , items}) => {
           />
         </div>
         <div className="col">
-          <button onClick={addItems} type="submit" className="btn btn-success">
+          <button type="submit" className="btn btn-success">
             Add
           </button>
         </div>
@@ -50,4 +55,4 @@ const InputField = ({setItems , items}) => {
   );
 };
 
-export default InputField
+export default InputField;

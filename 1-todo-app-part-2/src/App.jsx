@@ -13,7 +13,7 @@ function App() {
       <AppName />
       <InputField items={items} setItems={setItems}/>
       {items.length < 1 && <Empty />}
-      <List items={items} />
+      <List items={items} setItems={setItems} />
     </div>
   );
 }
