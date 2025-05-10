@@ -1,27 +1,18 @@
+import { useState } from "react";
 import AppName from "./components/AppName";
 import InputField from "./components/InputField";
 import List from "./components/List";
+import Empty from "./components/Empty";
+
 function App() {
 
-  let items = [
-    {
-      name: "Go to college",
-      dueDate: "10/05/2025"
-    },
-    {
-      name: "Go to college",
-      dueDate: "10/05/2025"
-    },
-    {
-      name: "Go to college",
-      dueDate: "10/05/2025"
-    }
-  ];
+ const [items, setItems] = useState([]);
   
   return (
     <div>
       <AppName />
-      <InputField />
+      <InputField items={items} setItems={setItems}/>
+      {items.length < 1 && <Empty />}
       <List items={items} />
     </div>
   );
