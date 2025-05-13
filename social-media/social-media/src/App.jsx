@@ -6,13 +6,14 @@ import Sidebar from './components/Sidebar';
 import Userinput from './components/Userinput';
 import PostList from './components/PostList';
 import { useState } from 'react';
+import AppStore from './store/AppStore';
 
 function App() {
    const [OnTab , setOnTab] = useState("Home");
    
    
   return (
-
+    <AppStore>
     <div className="app-container">
       <Sidebar OnTab={OnTab} setOnTab={setOnTab}/>
       <div className='content'>
@@ -21,6 +22,7 @@ function App() {
         <Footer />
       </div>
     </div>
+    </AppStore>
   )
 }
 

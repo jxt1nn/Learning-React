@@ -5,3 +5,8 @@
 .content {
    width: 100%;
 }
+.tags-class {
+  display: flex;
+  justify-content: center;
+  
+}
